@@ -31,6 +31,7 @@ import org.kde.kdeconnect.backends.BaseLinkProvider
 import org.kde.kdeconnect.backends.BaseLinkProvider.ConnectionReceiver
 import org.kde.kdeconnect.backends.bluetooth.BluetoothLinkProvider
 import org.kde.kdeconnect.backends.lan.LanLinkProvider
+import org.kde.kdeconnect.backends.loopback.LoopbackLinkProvider
 import org.kde.kdeconnect.helpers.NotificationHelper
 import org.kde.kdeconnect.plugins.clipboard.ClipboardFloatingActivity
 import org.kde.kdeconnect.plugins.clipboard.ClipboardPlugin
@@ -38,6 +39,7 @@ import org.kde.kdeconnect.plugins.runcommand.RunCommandActivity
 import org.kde.kdeconnect.plugins.runcommand.RunCommandPlugin
 import org.kde.kdeconnect.plugins.share.SendFileActivity
 import org.kde.kdeconnect.ui.MainActivity
+import org.kde.kdeconnect_tp.BuildConfig
 import org.kde.kdeconnect_tp.R
 
 /**
@@ -66,7 +68,10 @@ class BackgroundService : Service() {
 
     private fun registerLinkProviders() {
         linkProviders.add(LanLinkProvider(this))
-        //linkProviders.add(LoopbackLinkProvider(this))
+        if (BuildConfig.DEBUG) {
+            // Shows this device as a paired peer of itself, handy for testing the UI without another device
+            linkProviders.add(LoopbackLinkProvider(this))
+        }
         linkProviders.add(BluetoothLinkProvider(this))
     }
 
