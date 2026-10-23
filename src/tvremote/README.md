@@ -43,39 +43,31 @@ Long press a button (or use **Edit buttons**) to change it. Two kinds of action:
 
 ### Reuse an already open Netflix / Jellyfin window
 
-Browsers can't be asked to switch to an existing tab from the command line, but the window title is
-the title of its active tab. So the script below looks for a window whose title contains "Netflix"
-(or "Jellyfin"), focuses it if found, and otherwise opens the page in a **new window**, so that the
-service stays the active tab of its own window and is found again next time.
+Browsers can't be asked to switch to an existing tab from the command line, but a window's title is
+the title of its active tab. So `tv-open` looks for a window whose title contains "Netflix" (or
+"Jellyfin") and brings it to the front. Otherwise it opens the page in a **new tab** of the open
+Firefox window (a window is only created when Firefox isn't running), then brings that window to the
+front once the page has loaded.
 
-#### Linux
+If the site is open in a tab that isn't the active one, its title isn't visible, so a second tab is
+opened.
 
-Save as `~/.local/bin/tv-open` and `chmod +x` it:
+#### Linux (GNOME)
 
-```sh
-#!/bin/sh
-# Usage: tv-open <window title part> <url>
-title="$1"
-url="$2"
-if command -v kdotool >/dev/null 2>&1; then
-    # KDE Plasma, works on Wayland too
-    id=$(kdotool search --name "$title" | head -n 1)
-    [ -n "$id" ] && exec kdotool windowactivate "$id"
-elif command -v wmctrl >/dev/null 2>&1; then
-    # X11 desktops
-    wmctrl -a "$title" && exit 0
-fi
-if command -v firefox >/dev/null 2>&1; then
-    exec firefox --new-window "$url"
-fi
-# No Firefox: default browser, in a new tab
-exec xdg-open "$url"
-```
+GNOME on Wayland doesn't let programs list or focus other windows, so this needs the
+**Window Calls** extension:
 
-Focusing an existing window needs `kdotool` (KDE Plasma, X11 or Wayland) or `wmctrl` (X11 only).
-On GNOME Wayland neither works, so the script always opens a new window there.
+1. Install the extension manager: `sudo apt install gnome-shell-extension-manager`
+2. Open *Extension Manager*, search for **Window Calls**, install it and make sure it's enabled.
+3. Copy [`pc-scripts/tv-open`](pc-scripts/tv-open) to `~/.local/bin/tv-open` and make it executable:
+   `chmod +x ~/.local/bin/tv-open`
 
-Commands to add in KDE Connect on the computer:
+It only uses tools Debian ships with GNOME (`python3`, `busctl`), and finds Firefox as `firefox` or
+`firefox-esr`. Test it from a terminal first: `~/.local/bin/tv-open Netflix https://www.netflix.com/browse`.
+
+Commands to add on the computer, in KDE Connect (or GSConnect, the GNOME version) → this phone →
+*Commands*. If a command doesn't run, write the full path (`/home/<you>/.local/bin/tv-open`) instead
+of `~`:
 
 | Name      | Command                                                        |
 |-----------|----------------------------------------------------------------|
@@ -93,7 +85,7 @@ param([string]$Title, [string]$Url)
 $shell = New-Object -ComObject WScript.Shell
 if ($shell.AppActivate($Title)) { exit }
 try {
-    Start-Process firefox "-new-window $Url" -ErrorAction Stop
+    Start-Process firefox "-new-tab $Url" -ErrorAction Stop
 } catch {
     # Firefox not found: default browser, in a new tab
     Start-Process $Url
