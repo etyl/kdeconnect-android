@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tvremote_app_name">TV Remote</string>
+
+    <string name="tvremote_connected">Connected</string>
+    <string name="tvremote_offline">Offline, controls will not respond</string>
+    <string name="tvremote_choose_device">Choose computer</string>
+    <string name="tvremote_no_device_title">No paired computer</string>
+    <string name="tvremote_no_device_text">Pair this phone with the computer plugged to your TV in KDE Connect, then come back here.</string>
+    <string name="tvremote_open_kdeconnect">Open KDE Connect</string>
+    <string name="tvremote_more">More options</string>
+    <string name="tvremote_volume_keys">Phone volume keys control PC</string>
+    <string name="tvremote_edit_shortcuts">Edit buttons</string>
+    <string name="tvremote_done_editing">Done</string>
+
+    <string name="tvremote_tab_media">Multimedia</string>
+    <string name="tvremote_tab_touchpad">Touchpad</string>
+    <string name="tvremote_copy">Copy</string>
+    <string name="tvremote_paste">Paste</string>
+    <string name="tvremote_back">Back</string>
+    <string name="tvremote_home">Home</string>
+    <string name="tvremote_fullscreen">Full screen</string>
+    <string name="tvremote_close_window">Close window</string>
+    <string name="tvremote_touchpad_hint">Slide to move · Tap to click\nTwo fingers to scroll · Two-finger tap to right click</string>
+    <string name="tvremote_left_click">Left click</string>
+    <string name="tvremote_right_click">Right click</string>
+    <string name="tvremote_input_unavailable">Remote input is disabled. Enable the \"Remote input\" plugin for this computer in KDE Connect.</string>
+
+    <string name="tvremote_type_on_pc">Type on the computer</string>
+    <string name="tvremote_send">Send</string>
+    <string name="tvremote_enter">Enter</string>
+    <string name="tvremote_backspace">Backspace</string>
+
+    <string name="tvremote_nothing_playing">Nothing playing</string>
+    <string name="tvremote_media_unavailable">Multimedia controls are disabled for this computer.</string>
+    <string name="tvremote_play_pause">Play or pause</string>
+    <string name="tvremote_previous">Previous</string>
+    <string name="tvremote_next">Next</string>
+    <string name="tvremote_rewind">Back 10 seconds</string>
+    <string name="tvremote_forward">Forward 10 seconds</string>
+    <string name="tvremote_choose_player">Choose player</string>
+    <string name="tvremote_volume">Volume</string>
+    <string name="tvremote_volume_down">Volume down</string>
+    <string name="tvremote_volume_up">Volume up</string>
+    <string name="tvremote_mute">Mute</string>
+
+    <string name="tvremote_shortcuts">Shortcuts</string>
+    <string name="tvremote_add_shortcut">Add button</string>
+    <string name="tvremote_edit_shortcut">Edit button</string>
+    <string name="tvremote_new_shortcut">New button</string>
+    <string name="tvremote_shortcut_label">Label</string>
+    <string name="tvremote_shortcut_icon">Icon</string>
+    <string name="tvremote_shortcut_action">Action</string>
+    <string name="tvremote_action_open_url">Web page</string>
+    <string name="tvremote_action_run_command">PC command</string>
+    <string name="tvremote_shortcut_url">Address</string>
+    <string name="tvremote_shortcut_url_help">Opens in a new tab of the computer\'s default browser.</string>
+    <string name="tvremote_shortcut_command">Command name</string>
+    <string name="tvremote_shortcut_command_help">Name of a command added on the computer, in KDE Connect\'s \"Run commands\" settings. Case and spaces don\'t matter.</string>
+    <string name="tvremote_shortcut_pc_commands">Commands on this computer</string>
+    <string name="tvremote_shortcut_fallback_url">Address if the command is missing (optional)</string>
+    <string name="tvremote_shortcut_confirm">Ask for confirmation</string>
+    <string name="tvremote_save">Save</string>
+    <string name="tvremote_cancel">Cancel</string>
+    <string name="tvremote_delete">Delete</string>
+    <string name="tvremote_confirm_run">Run \"%1$s\" on %2$s?</string>
+    <string name="tvremote_run">Run</string>
+
+    <string name="tvremote_sent">\"%1$s\" sent</string>
+    <string name="tvremote_opened_fallback">No \"%1$s\" command on the computer, opened the page in a new tab instead</string>
+    <string name="tvremote_missing_command">The computer has no command named \"%1$s\"</string>
+    <string name="tvremote_setup_command">Set up</string>
+    <string name="tvremote_unavailable">Not available, check that the needed plugin is enabled for this computer</string>
+</resources>

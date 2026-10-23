@@ -480,6 +480,19 @@ SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted
                 <action android:name="android.service.controls.ControlsProviderService" />
             </intent-filter>
         </service>
+
+        <!-- TV remote UI, sources in src/tvremote -->
+        <activity
+            android:name="org.kde.kdeconnect.tvremote.TvRemoteActivity"
+            android:label="@string/tvremote_app_name"
+            android:taskAffinity="org.kde.kdeconnect.tvremote"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

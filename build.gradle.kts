@@ -54,6 +54,9 @@ android {
 
     sourceSets.getByName("main") {
         res.directories += licenseResDir
+        // TV remote UI, kept in its own folder so it doesn't conflict with upstream changes
+        kotlin.directories += "src/tvremote/java"
+        res.directories += "src/tvremote/res"
     }
 
     compileOptions {
